@@ -1,0 +1,64 @@
+* {
+    margin-left: 200px;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.slide-enter-active {
+    transition: all 0.5s ease;
+}
+
+.slide-leave-active {
+    transition: all 1s ease;
+}
+
+.slide-enter, .slide-leave-to {
+    transform: translateX(30px);
+    opacity: 0;
+}
+
+.bounce-enter-active {
+    animation: bounce-in 1s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 1s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.custom-enter, .custom-leave {
+    opacity: 0;
+}
+
+/***************************初始渲染*/
+
+.must-appear-active-class {
+    background-color: #5E740B;
+    transition: 5s;
+}
+
+.must-appear-class {
+    background-color: #528CE0;
+}
+
+p {
+    width: 100px;
+    background-color: burlywood;
+}

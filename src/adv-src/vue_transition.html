@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="vue_transition.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <script src="../vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+</head>
+<!--单元素、组件的过度-->
+<body>
+<div id="demo1">
+    <button v-on:click="show=!show">toggle</button>
+    <transition name="fade">
+        <p v-if="show">hello</p>
+    </transition>
+    <transition name="slide">
+        <p v-if="show">hello</p>
+    </transition>
+    <transition name="bounce" :duration="100">
+        <!--duration可以制定一个显性的过度时间，duration="{entry:100,leave=200}"-->
+        <p v-if="show">animation is this one</p>
+    </transition>
+    <!--自定义过度类名优先级高于普通类名-->
+    <transition
+            name="custom"
+            enter-active-class="animated tada"
+            leave-active-class="animated bounceOutRight"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+    <!--javascript钩子函数过度-->
+    <transition
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:leave="leave"
+            v-bind:css="false"
+    >
+        <p v-if="show">
+            Demo
+        </p>
+    </transition>
+</div>
+
+
+<!--初始渲染的过渡-->
+<div id="demo2">
+    <transition appear
+                appear-class="must-appear-class"
+                appear-active-class="must-appear-active-class">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<script src="vue_transition.js"></script>
+</body>
+</html>

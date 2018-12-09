@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+    <link href="../assets/css/vue.css" rel="stylesheet">
+</head>
+<body>
+<!--以下是例子演示-->
+
+
+<div id="one">
+    <p>{{name}},{{age}},{{home}}</p>
+</div>
+<!--响应式-->
+
+
+<div id="two">
+    <P>{{one}}</P>
+    <p>{{ten_times}}</p>
+    <p>{{double}}</p>
+</div>
+<!--计算属性-->
+
+
+<div id="three">
+    <p>{{fullname}}</p>
+</div>
+<!--监听属性-->
+
+
+<div id="four">
+    <div v-bind:class="{A:isa,B:isb}">第一种对象语法</div>
+    <div v-bind:class="object_class">第二种对象语法</div>
+    <div v-bind:class="object_class_computed">第三种对象语法</div>
+    <div v-bind:class="[F1,F2,isa ? C :'',{D:isa}]">第一种数组语法</div>
+    <div v-bind:style="{color:activecolor,fontSize:fontsize+'px'}">绑定style属性与class属性差不多</div>
+</div>
+<!--绑定class与style-->
+
+
+<div id="if-else">
+    <h3 v-show="loginType ===1">我在这里</h3>
+    <template v-if="loginType ===1">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+    <button v-on:click="too">点击</button>
+</div>
+<!--条件渲染-->
+
+
+<div id="for-of">
+    <p v-for="(value,key,index) in object" :key="key" v-if="index>1">{{value}},{{index}},{{key}}</p>
+    <p v-for="value in abc" v-if="value>4">{{value}}</p>
+    <p v-for="n in 4">{{n}}</p>
+</div>
+<!--列表渲染-->
+
+
+<div id="doing">
+    <form>
+        <input @keyup.enter="warn">
+        <input @keyup.page-down.shift="warn">
+        <button v-on:click.prevent="warn" type="submit">
+            Submit
+        </button>
+    </form>
+</div>
+<!--事件处理-->
+
+
+<div id="form-control">
+    <input v-model.trim.lazy="message" placeholder="edit it with .lazy">
+    <input v-model.number="message" placeholder="edit it with number" type="number">
+    <textarea v-model="message" placeholder="what hell"></textarea>
+    <p>{{message}}</p>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+    <div id='example-3'>
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names:{{checkedNames}}</span>
+    </div>
+    <div id="example-5">
+        <select v-model="selected">
+            <option v-for="op in options" v-bind:value="op.value">{{op.text}}</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+    <!--v-model是个语法糖-->
+    <!--<input type="input" v-bind:value="url" v-on:input="url=$event.target.value">-->
+    <!--<input type="button" :value="attr" @click="attr = $event.target.value" >-->
+    <!--<input type="radio" name="t-url" :value="url" @change="url = $event.target.checked" >-->
+</div>
+<!--表单输入绑定-->
+
+
+<div id="component-demo">
+    <button-component class="buttons"></button-component>
+    <button-component class="buttons"></button-component>
+    <button-component class="buttons"></button-component>
+</div>
+<!--注册组件-->
+
+<div id="component-prop">
+    <blog-post title="what is worry"></blog-post>
+    <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+</div>
+<!--prop-->
+
+<div id="component-composts">
+    <div :style="{fontSize: setFontSize+'em'}">
+        <blogs-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:bigger="setFontSize+=$event"
+        >where i am
+        </blogs-post>
+    </div>
+</div>
+<!--prop复杂组件-->
+
+
+<div id="input-model">
+    <input-custom class="input" v-model="what"></input-custom>
+</div>
+<!--model输入-->
+
+<div id="dynamic-component-demo">
+    <button v-for="tab in tabs"
+            v-bind:key="tab"
+            v-bind:class="['tab-button', { active: currentTab === tab }]"
+            v-on:click="currentTab = tab"
+    >{{ tab }}
+    </button>
+    <component
+            v-bind:is="currentTabComponent"
+            class="tab"
+    ></component>
+</div>
+<!--动态组件-->
+
+<script src="vue_org.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+div {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+    width: 50%;
+}
+
+.A {
+    color: yellow;
+}
+
+.B {
+    border-radius: 10px;
+}
+
+.C {
+    border: solid blue 3px;
+}
+
+.D {
+    background-color: black;
+}
+
+.buttons {
+    background-color: black;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 200px;
+    font-size: larger;
+}
+
+.tab-button {
+    padding: 6px 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #f0f0f0;
+    margin-bottom: -1px;
+    margin-right: -1px;
+}
+
+.tab-button:hover {
+    background: #e0e0e0;
+}
+
+.tab-button.active {
+    background: #e0e0e0;
+}
+
+.tab {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.a {
+    background-color: #b5d592;
+    color: black;
+}
+
+.b {
+    color: #528CE0;
+}
